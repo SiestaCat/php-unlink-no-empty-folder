@@ -5,11 +5,11 @@ namespace Siestacat\UnlinkNoEmptyFolder;
 /**
  * @package Siestacat\UnlinkNoEmptyFolder
  */
-class Main
+class ClearFolderAfterUnlink
 {
-    public static function unlink(string $path, ?resource $context = null):bool
+    public static function unlink(string $path, $context = null):bool
     {
-        $unlink_func_response = unlink($path);
+        $unlink_func_response = unlink($path, $context);
 
         if($unlink_func_response) return self::clear_file_dir($path);
 
